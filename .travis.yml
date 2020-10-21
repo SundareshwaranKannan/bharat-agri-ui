@@ -18,7 +18,7 @@ cache:
     - node_modules
 
 script:
-  - ng build --prod --base-href https://sundareshwarankannan.github.io/bookmark-ui/
+  - ng build --prod --base-href https://sundareshwarankannan.github.io/bharat-agri-ui/
 
 after_success:
   - cat ./coverage/bookmark-ui/lcov.info | ./node_modules/coveralls/bin/coveralls.js
