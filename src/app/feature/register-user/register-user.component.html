@@ -1,0 +1,26 @@
+<div class="row justify-content-center pt-3">
+  <span *ngIf="displayEmailError" class="display-warning pl-4">Enter a valid email id</span><br/>
+</div>
+<div class="row justify-content-center pt-3">
+  <input class="form-control login-width" type="text" [formControl]="email"
+         placeholder="Email id"><br>
+</div>
+<div class="row justify-content-center pt-3">
+  <input class="form-control login-width" type="password" [formControl]="password"
+         placeholder="Enter your desired password"><br>
+</div>
+<div class="row justify-content-center pt-3">
+  <input class="form-control login-width" type="text" [formControl]="userName"
+         placeholder="User name"><br>
+</div>
+<div class="row justify-content-center pt-3">
+  <input class="form-control login-width" type="text" [formControl]="location"
+         placeholder="Location"><br>
+</div>
+<div class="row justify-content-center pt-3">
+  <input class="form-control login-width" type="number" [formControl]="mobileNumber"
+         placeholder="Mobile number"><br>
+</div>
+<div class="row justify-content-center pt-3">
+  <button class="btn btn-lg btn-primary reload-button" (click)="register()">Register</button>
+</div>

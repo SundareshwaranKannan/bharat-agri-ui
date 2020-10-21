@@ -1,0 +1,25 @@
+<div class="container pt-2">
+  <div class="card">
+    <div class="card-header">
+      <div class="title"><h3>{{ crop.name }}</h3></div>
+      <div class="row justify-content-end pt-3">
+        <div class="col-4">
+          <h5 class="badge badge-pill badge-success badge-header">Expected expenditure</h5>
+          <strong class="pl-2 crop-content">{{ crop.expenditure | number: '2.' }}</strong>
+        </div>
+        <div class="col-4 align-content-end">
+          <h5 class="badge badge-pill badge-success badge-header">Expected duration</h5>
+          <strong class="pl-2 crop-content">{{ crop.duration }}</strong>
+        </div>
+      </div>
+    </div>
+    <div class="card-body ml-2 crop-position">
+      <div><h5 class="badge badge-pill badge-primary badge-header">Climate</h5></div>
+      <label class="pl-2 crop-content">{{ crop.climate }}</label>
+      <div class="pt-3"><h5 class="badge badge-pill badge-primary badge-header">Temperature</h5></div>
+      <label class="pl-2 crop-content">{{ crop.temperature }}</label>
+      <div class="pt-3"><h5 class="badge badge-pill badge-primary badge-header">Water requirement</h5></div>
+      <label class="pl-2 crop-content">{{ crop.water }}</label>
+    </div>
+  </div>
+</div>
