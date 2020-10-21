@@ -21,7 +21,7 @@ script:
   - ng build --prod --base-href https://sundareshwarankannan.github.io/bharat-agri-ui/
 
 after_success:
-  - cat ./coverage/bookmark-ui/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - cat ./coverage/bharat-agri-ui/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 
 deploy:
   provider: pages
@@ -30,3 +30,4 @@ deploy:
   keep-history: true
   local-dir: ./dist/
   on:
+    branch: mock-screen
