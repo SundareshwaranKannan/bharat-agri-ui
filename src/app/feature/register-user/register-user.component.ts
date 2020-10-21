@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {UserLogin} from '../../shared/model/user-login';
 import {Router} from '@angular/router';
@@ -10,6 +10,9 @@ import {UserService} from '../../service/user.service';
   styleUrls: ['./register-user.component.scss']
 })
 export class RegisterUserComponent implements OnInit {
+
+  @Output()
+  closeRegister = new EventEmitter<boolean>();
 
   email = new FormControl('');
   password = new FormControl('');
@@ -46,18 +49,16 @@ export class RegisterUserComponent implements OnInit {
   }
 
   saveUserDetails() {
-    this.userService.registerUser(this.userRequest).subscribe(
-        data => {
-          this.userService.currentUser = data;
-          if (data.validUser === 'Y') {
-            this.router.navigate(['/crop-details']);
-          } else {
-            alert(data.message);
-          }
-        }, error => {
-          alert('Failed registering, confirm the email id is not already registered');
-        }
+    const currentUser = this.userService.userDataBase.filter(
+        user => user.email === this.userRequest.email
     );
+    if (currentUser.length === 0) {
+      this.userService.userDataBase.push(this.userRequest);
+      this.closeRegister.emit(true);
+      this.router.navigate(['/crop-details']);
+    } else {
+      alert('The given email id is already registered!');
+    }
   }
 
 }

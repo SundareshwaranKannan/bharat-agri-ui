@@ -47,7 +47,7 @@ export class CropsService {
       duration: '30-40 Years',
       expenditure: 37447,
       name: 'Mango',
-      temperature: 'The ideal temperature range for mango is 24-30 °C during the growing season, along with high humidity. \r\n  High temperature by itself is not so injurious to mango, but in combination with low humidity and high winds, it affects the tree adversely.',
+      temperature: 'The ideal temperature range for mango is 24-30 °C during the growing season, along with high humidity. \r\n  High temperature by itself is not so injurious to mango',
       water: 'Crop required water equivalent to 900-1100 mm of rainfall.'
     },
     {
@@ -90,7 +90,7 @@ export class CropsService {
       temperature: 'Temperature below 10°C retards plant development.\r\n  If temperature goes beyond 33°C, fruit development will be adversely affected.',
       water: 'Crop water requirement – equivalent to 600-1500 mm rainfall.'
     }
-  ]
+  ];
 
   constructor(private http: HttpClient) { }
 

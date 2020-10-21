@@ -30,18 +30,18 @@ export class UserComponent implements OnInit {
     this.userRequest.email = this.email.value;
     this.userRequest.password = this.password.value;
     if (this.userRequest.email.includes('@') && this.userRequest.email.includes('@')) {
-      this.userService.getUserDetails(this.userRequest).subscribe(
-          data => {
-            this.userService.currentUser = data;
-            if (data.validUser === 'Y') {
-              this.router.navigate(['/crop-details']);
-            } else {
-              alert(data.message);
-            }
-          }, error => {
-            alert('Invalid user or password. Try clicking on register after entering mail and password');
-          }
+      const currentUser = this.userService.userDataBase.filter(
+          user => user.email === this.userRequest.email
       );
+      if (currentUser.length > 0) {
+        if (currentUser[0].password === this.userRequest.password) {
+          this.router.navigate(['/crop-details']);
+        } else {
+          alert('Invalid password');
+        }
+      } else {
+        alert('Invalid user or password. Try clicking on register button');
+      }
     }
     else {
       alert('Enter valid email');

@@ -21,14 +21,8 @@ export class CropsComponent implements OnInit {
   }
 
   loadAllCropDetails() {
-    this.cropsService.getCropDetails().subscribe(
-        data => {
-          this.crops = data;
-          this.filteredCrops = data;
-        }, error => {
-          alert('Failed fetching the crop details');
-        }
-    );
+    this.crops = this.cropsService.crops;
+    this.filteredCrops = this.crops;
   }
 
   onFilterCrop() {

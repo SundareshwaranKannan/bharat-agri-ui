@@ -11,6 +11,7 @@ export class UserService {
 
   url = 'localhost:5000/auth';
   currentUser = {} as User;
+  userDataBase = [] as UserLogin[];
 
   constructor(private http: HttpClient) { }
 
