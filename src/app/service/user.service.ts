@@ -13,7 +13,12 @@ export class UserService {
   currentUser = {} as User;
   userDataBase = [] as UserLogin[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    const user = {} as UserLogin;
+    user.email = 'sample@gmail.com';
+    user.password = '123';
+    this.userDataBase.push(user);
+  }
 
   getUserDetails(userRequest: UserLogin): Observable<User> {
     return this.http.post<User>(this.url + '/login', userRequest);
